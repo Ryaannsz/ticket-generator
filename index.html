@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css.css" media="screen" />
+  <title>Gerador de Tickets</title>
+  
+</head>
+<body>
+
+  <h1>🎟️ Gerador de Tickets</h1>
+  
+  <form id="ticketForm" novalidate>
+    <div class="form-control">
+      <label for="fullName">Nome Completo</label>
+      <input type="text" id="fullName" name="fullName" aria-describedby="nameHint" required>
+      <div id="nameHint" class="hint">Digite seu nome completo.</div>
+      <div class="error" aria-live="assertive"></div>
+    </div>
+    
+    <div class="form-control">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" aria-describedby="emailHint" required>
+      <div id="emailHint" class="hint">Ex: nome@dominio.com</div>
+      <div class="error" aria-live="assertive"></div>
+    </div>
+    
+    <div class="form-control">
+      <label for="github">Perfil do GitHub</label>
+      <input type="url" id="github" name="github" aria-describedby="githubHint" 
+             placeholder="https://github.com/seu-usuario" pattern="https://github.com/.+">
+      <div id="githubHint" class="hint">Ex: https://github.com/seu-usuario</div>
+      <div class="error" aria-live="assertive"></div>
+    </div>
+    
+    <div class="form-control">
+      <label for="avatar">Avatar (imagem até 2MB, .jpg, .jpeg ou .png)</label>
+      <input type="file" id="avatar" name="avatar" accept=".jpg,.jpeg,.png" aria-describedby="avatarHint" required>
+      <div id="avatarHint" class="hint">Selecione uma imagem de perfil.</div>
+      <div class="error" aria-live="assertive"></div>
+    </div>
+    
+    <button type="submit">Gerar Ticket</button>
+  </form>
+
+  <div id="ticket" hidden aria-live="polite"></div>
+
+  <script src="js.js"></script>
+</body>
+</html>

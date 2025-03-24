@@ -1,0 +1,316 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #f0f6fa 0%, #e6f4f1 100%);
+    color: #2d3748;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  h1 {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    color: #2d3748;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    animation: slideDown 0.8s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+  form {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .form-control {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 0.9rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="file"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  input:focus {
+    border-color: #48bb78;
+    box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.2);
+    outline: none;
+  }
+
+
+  .hint, .error {
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+  .hint {
+    color: #666;
+  }
+  .error {
+    color: #e74c3c;
+  }
+
+  
+  #ticket {
+    max-width: 400px;
+    margin: 3rem auto;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    animation: ticketAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-style: preserve-3d;
+    overflow: hidden;
+  }
+
+  @keyframes ticketAppear {
+    0% {
+      opacity: 0;
+      transform: perspective(1000px) rotateX(-60deg) translateY(50px) scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: perspective(1000px) rotateX(0) translateY(0) scale(1);
+    }
+  }
+
+  #ticket::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 10%;
+    right: 10%;
+    height: 20px;
+    background: repeating-linear-gradient(45deg, 
+      transparent, 
+      transparent 10px, 
+      #e2e8f0 10px, 
+      #e2e8f0 20px);
+  }
+
+  #ticket::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 10%;
+    right: 10%;
+    height: 20px;
+    background: repeating-linear-gradient(-45deg, 
+      transparent, 
+      transparent 10px, 
+      #e2e8f0 10px, 
+      #e2e8f0 20px);
+  }
+
+  .ticket-content {
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: inset 0 4px 12px rgba(0,0,0,0.05);
+  }
+
+  .ticket-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed #e2e8f0;
+  }
+
+  .ticket-header h2 {
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .ticket-header p {
+    color: #718096;
+    font-size: 0.9rem;
+  }
+
+  #ticket img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 1rem auto;
+    display: block;
+    border: 4px solid #48bb78;
+    box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+    object-fit: cover;
+  }
+
+  .ticket-details {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .ticket-details::before {
+    content: "✓ Validado";
+    position: absolute;
+    top: -12px;
+    right: -10px;
+    background: #48bb78;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(72, 187, 120, 0.3);
+    animation: pulse 2s infinite;
+  }
+
+  .ticket-barcode {
+    height: 40px;
+    background: repeating-linear-gradient(90deg, 
+      #000, #000 2px, 
+      transparent 2px, transparent 4px);
+    margin: 1rem 0;
+    position: relative;
+  }
+
+  .ticket-barcode::after {
+    content: "TC2024";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: monospace;
+    letter-spacing: 5px;
+    color: #4a5568;
+  }
+
+  .github-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .github-profile a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #2d3748;
+    font-weight: 500;
+  }
+
+  .github-profile svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    fill: #2d3748;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+
+  button {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(72, 187, 120, 0.3);
+  }
+
+  button:active {
+    transform: translateY(0);
+  }
+
+  button::before {
+    content: "🎟️";
+  }
+
+
+  @media (max-width: 640px) {
+    body {
+      padding: 1rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      margin: 1rem 0;
+    }
+    
+    form, #ticket {
+      padding: 1.5rem;
+      margin: 1.5rem auto;
+    }
+    
+    #ticket {
+      max-width: 100%;
+    }
+  }
