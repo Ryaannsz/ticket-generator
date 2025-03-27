@@ -124,48 +124,7 @@
           ticketDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
           
          
-          setTimeout(() => {
-            const confetti = document.createElement('div');
-            confetti.innerHTML = `
-              <style>
-                .confetti {
-                  position: fixed;
-                  width: 10px;
-                  height: 10px;
-                  background-color: #48bb78;
-                  opacity: 0.7;
-                  animation: confetti-fall 3s linear forwards;
-                  z-index: 1000;
-                }
-                @keyframes confetti-fall {
-                  0% {
-                    transform: translateY(-100vh) rotate(0deg);
-                    opacity: 1;
-                  }
-                  100% {
-                    transform: translateY(100vh) rotate(360deg);
-                    opacity: 0;
-                  }
-                }
-              </style>
-            `;
-            
-            for (let i = 0; i < 50; i++) {
-              const confettiPiece = document.createElement('div');
-              confettiPiece.className = 'confetti';
-              confettiPiece.style.left = Math.random() * 100 + 'vw';
-              confettiPiece.style.animationDelay = Math.random() * 2 + 's';
-              confettiPiece.style.backgroundColor = `hsl(${Math.random() * 120 + 120}, 70%, 60%)`;
-              confettiPiece.style.width = Math.random() * 10 + 5 + 'px';
-              confettiPiece.style.height = Math.random() * 10 + 5 + 'px';
-              document.body.appendChild(confettiPiece);
-              
-              
-              setTimeout(() => {
-                confettiPiece.remove();
-              }, 3000);
-            }
-          }, 300);
+          
         };
         reader.readAsDataURL(avatarFile);
       }
